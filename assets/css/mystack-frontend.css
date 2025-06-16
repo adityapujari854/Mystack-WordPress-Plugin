@@ -1,0 +1,439 @@
+/**
+ * mystack Frontend Styles
+ * Styles for the chat widget and embedded components
+ */
+
+/* Widget Container */
+.mystack-widget-container {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.5;
+    color: #1f2937;
+    box-sizing: border-box;
+}
+
+.mystack-widget-container *,
+.mystack-widget-container *::before,
+.mystack-widget-container *::after {
+    box-sizing: inherit;
+}
+
+/* Widget Button */
+.mystack-widget-button {
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+    user-select: none;
+}
+
+.mystack-widget-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25) !important;
+}
+
+.mystack-widget-button:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
+
+.mystack-widget-button:active {
+    transform: scale(0.95);
+}
+
+.mystack-widget-button svg {
+    transition: transform 0.2s ease;
+}
+
+.mystack-widget-button:hover svg {
+    transform: scale(1.1);
+}
+
+/* Widget Header */
+.mystack-widget-header {
+    user-select: none;
+}
+
+.mystack-widget-title {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.mystack-widget-close {
+    transition: all 0.2s ease;
+    border-radius: 4px;
+}
+
+.mystack-widget-close:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    transform: scale(1.1);
+}
+
+.mystack-widget-close:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 1px;
+}
+
+/* Theme Variations */
+.mystack-theme-dark .mystack-widget-container {
+    color: #f9fafb;
+}
+
+.mystack-theme-dark .mystack-widget-close:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Position Classes */
+.mystack-position-bottom-right {
+    /* Styles handled by JavaScript */
+}
+
+.mystack-position-bottom-left {
+    /* Styles handled by JavaScript */
+}
+
+.mystack-position-top-right {
+    /* Styles handled by JavaScript */
+}
+
+.mystack-position-top-left {
+    /* Styles handled by JavaScript */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .mystack-widget-container {
+        width: 100% !important;
+        height: 100% !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        border-radius: 0 !important;
+        position: fixed !important;
+        z-index: 999999 !important;
+    }
+    
+    .mystack-widget-button {
+        width: 56px !important;
+        height: 56px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .mystack-widget-button {
+        width: 50px !important;
+        height: 50px !important;
+        bottom: 16px !important;
+        right: 16px !important;
+    }
+}
+
+/* Shortcode Containers */
+.mystack-modbot-shortcode,
+.mystack-ticket-form-shortcode {
+    width: 100%;
+    margin: 20px 0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mystack-modbot-shortcode iframe,
+.mystack-ticket-form-shortcode iframe {
+    display: block;
+    width: 100%;
+    border: none;
+    background: #ffffff;
+}
+
+/* Dark theme for shortcodes */
+.mystack-theme-dark .mystack-modbot-shortcode,
+.mystack-theme-dark .mystack-ticket-form-shortcode {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.mystack-theme-dark .mystack-modbot-shortcode iframe,
+.mystack-theme-dark .mystack-ticket-form-shortcode iframe {
+    background: #1f2937;
+}
+
+/* Loading States */
+.mystack-loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #f3f4f6;
+    border-top: 2px solid #3b82f6;
+    border-radius: 50%;
+    animation: mystack-spin 1s linear infinite;
+}
+
+@keyframes mystack-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.mystack-loading-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.mystack-loading-container .mystack-loading {
+    margin-right: 10px;
+}
+
+/* Notifications */
+.mystack-notification {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-size: 14px;
+    line-height: 1.4;
+    animation: mystack-slide-in 0.3s ease-out;
+}
+
+@keyframes mystack-slide-in {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Error States */
+.mystack-error {
+    padding: 20px;
+    background-color: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+    color: #dc2626;
+    text-align: center;
+    font-size: 14px;
+}
+
+.mystack-error-title {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.mystack-error-message {
+    margin-bottom: 12px;
+}
+
+.mystack-error-retry {
+    background-color: #dc2626;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.2s ease;
+}
+
+.mystack-error-retry:hover {
+    background-color: #b91c1c;
+}
+
+/* Accessibility */
+.mystack-widget-button:focus-visible,
+.mystack-widget-close:focus-visible {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .mystack-widget-button,
+    .mystack-widget-close,
+    .mystack-loading,
+    .mystack-notification {
+        animation: none;
+        transition: none;
+    }
+    
+    .mystack-widget-button:hover,
+    .mystack-widget-button:active {
+        transform: none;
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .mystack-widget-container {
+        border: 2px solid;
+    }
+    
+    .mystack-widget-button {
+        border: 2px solid;
+    }
+}
+
+/* Print styles */
+@media print {
+    .mystack-widget-container,
+    .mystack-widget-button,
+    .mystack-notification {
+        display: none !important;
+    }
+}
+
+/* Widget animations */
+.mystack-widget-container {
+    animation: mystack-widget-appear 0.3s ease-out;
+}
+
+@keyframes mystack-widget-appear {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Button pulse animation for attention */
+.mystack-widget-button.pulse {
+    animation: mystack-pulse 2s infinite;
+}
+
+@keyframes mystack-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+    }
+}
+
+/* Custom scrollbar for webkit browsers */
+.mystack-widget-container ::-webkit-scrollbar {
+    width: 6px;
+}
+
+.mystack-widget-container ::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+.mystack-widget-container ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 3px;
+}
+
+.mystack-widget-container ::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+.mystack-theme-dark .mystack-widget-container ::-webkit-scrollbar-track {
+    background: #374151;
+}
+
+.mystack-theme-dark .mystack-widget-container ::-webkit-scrollbar-thumb {
+    background: #6b7280;
+}
+
+.mystack-theme-dark .mystack-widget-container ::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+
+/* Iframe loading placeholder */
+.mystack-iframe-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: mystack-loading-shimmer 1.5s infinite;
+}
+
+@keyframes mystack-loading-shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.mystack-theme-dark .mystack-iframe-loading {
+    background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+    background-size: 200% 100%;
+}
+
+/* Utility classes */
+.mystack-hidden {
+    display: none !important;
+}
+
+.mystack-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* RTL support */
+[dir="rtl"] .mystack-position-bottom-right {
+    right: auto;
+    left: 20px;
+}
+
+[dir="rtl"] .mystack-position-bottom-left {
+    left: auto;
+    right: 20px;
+}
+
+[dir="rtl"] .mystack-position-top-right {
+    right: auto;
+    left: 20px;
+}
+
+[dir="rtl"] .mystack-position-top-left {
+    left: auto;
+    right: 20px;
+}
+
+/* WordPress theme compatibility */
+.mystack-widget-container,
+.mystack-widget-button {
+    all: initial;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.mystack-widget-container * {
+    all: unset;
+    display: revert;
+    box-sizing: border-box;
+}
+
+.mystack-widget-container button {
+    cursor: pointer;
+}
+
+.mystack-widget-container input,
+.mystack-widget-container textarea,
+.mystack-widget-container select {
+    font-family: inherit;
+}
